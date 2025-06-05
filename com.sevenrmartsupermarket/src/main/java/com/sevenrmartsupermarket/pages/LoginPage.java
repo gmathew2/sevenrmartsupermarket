@@ -26,7 +26,7 @@ public class LoginPage
 	public LoginPage(WebDriver driver)
 	{
 		this.driver=driver;
-		PageFactory.initElements(driver, this); //class used to initialize elements
+		PageFactory.initElements(driver, this);
 		try
 		{
 			FileInputStream fileinputstream = new FileInputStream(Constants.CONFIG_FILEPATH);
