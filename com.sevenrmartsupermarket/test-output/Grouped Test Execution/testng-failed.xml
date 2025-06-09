@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Grouped Test Execution]">
+  <listeners>
+    <listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"/>
+  </listeners>
+  <test thread-count="5" name="Smoke Test(failed)">
+    <groups>
+      <run>
+        <include name="smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.sevenrmartsupermarket.tests.DashBoardTest">
+        <methods>
+          <include name="launchBrowser"/>
+          <include name="verifyLogoutOptionFromProfileIcon"/>
+          <include name="verifyLogoutOptionFromMenuSettings"/>
+          <include name="terminate"/>
+        </methods>
+      </class> <!-- com.sevenrmartsupermarket.tests.DashBoardTest -->
+    </classes>
+  </test> <!-- Smoke Test(failed) -->
+</suite> <!-- Failed suite [Grouped Test Execution] -->

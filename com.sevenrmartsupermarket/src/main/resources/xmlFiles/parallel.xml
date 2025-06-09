@@ -1,0 +1,25 @@
+<suite name="SuiteExample" thread-count="5" parallel="tests">
+	<listeners>
+		<listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+	<test name="Test1">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.DashBoardTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.LoginTests"></class>
+		</classes>
+	</test>
+	<test name="Test2">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.DashBoardTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.LoginTests"></class>
+		</classes>
+		</test>
+		
+	<test name="Test3">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.DashBoardTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.LoginTests"></class>
+		</classes>
+		</test>
+		
+</suite>

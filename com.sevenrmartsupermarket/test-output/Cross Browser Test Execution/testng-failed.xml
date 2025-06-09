@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Cross Browser Test Execution]">
+  <listeners>
+    <listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="Executing in Firefox(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.sevenrmartsupermarket.tests.DashBoardTest">
+        <methods>
+          <include name="launchBrowser"/>
+          <include name="verifyLogoutOptionFromProfileIcon"/>
+          <include name="verifyTheContactUsMailIsNotNull"/>
+          <include name="verifyLogoutOptionFromMenuSettings"/>
+          <include name="terminate"/>
+        </methods>
+      </class> <!-- com.sevenrmartsupermarket.tests.DashBoardTest -->
+      <class name="com.sevenrmartsupermarket.tests.LoginTests">
+        <methods>
+          <include name="verifyValidLogin"/>
+          <include name="launchBrowser"/>
+          <include name="test_login_with_invalid_credentials"/>
+          <include name="terminate"/>
+        </methods>
+      </class> <!-- com.sevenrmartsupermarket.tests.LoginTests -->
+    </classes>
+  </test> <!-- Executing in Firefox(failed) -->
+  <test thread-count="5" parallel="tests" name="Executing in Chrome(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.sevenrmartsupermarket.tests.DashBoardTest">
+        <methods>
+          <include name="launchBrowser"/>
+          <include name="verifyLogoutOptionFromProfileIcon"/>
+          <include name="verifyLogoutOptionFromMenuSettings"/>
+          <include name="terminate"/>
+        </methods>
+      </class> <!-- com.sevenrmartsupermarket.tests.DashBoardTest -->
+    </classes>
+  </test> <!-- Executing in Chrome(failed) -->
+  <test thread-count="5" parallel="tests" name="Executing in Edge(failed)">
+    <parameter name="browser" value="edge"/>
+    <classes>
+      <class name="com.sevenrmartsupermarket.tests.DashBoardTest">
+        <methods>
+          <include name="launchBrowser"/>
+          <include name="verifyLogoutOptionFromProfileIcon"/>
+          <include name="terminate"/>
+        </methods>
+      </class> <!-- com.sevenrmartsupermarket.tests.DashBoardTest -->
+    </classes>
+  </test> <!-- Executing in Edge(failed) -->
+</suite> <!-- Failed suite [Cross Browser Test Execution] -->

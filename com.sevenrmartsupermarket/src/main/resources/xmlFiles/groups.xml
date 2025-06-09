@@ -1,0 +1,18 @@
+<suite name="Grouped Test Execution">
+	<listeners>
+		<listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+	
+	<test name="Smoke Test">
+		<groups>
+			<run>
+				<include name="smoke"></include>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.DashBoardTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.LoginTests"></class>
+		</classes>
+	</test>
+	
+</suite>

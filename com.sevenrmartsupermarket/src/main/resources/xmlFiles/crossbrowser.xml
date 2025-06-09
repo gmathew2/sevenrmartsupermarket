@@ -1,0 +1,29 @@
+<suite name="Cross Browser Test Execution">
+	<listeners>
+		<listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+	
+	<test name="Executing in Edge">
+		<parameter name="browser" value="edge"/>
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.DashBoardTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.LoginTests"></class>
+		</classes>
+	</test>
+	<test name="Executing in Chrome">
+		<parameter name="browser" value="chrome"/>
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.DashBoardTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.LoginTests"></class>
+		</classes>
+	</test>
+		
+	<test name="Executing in Firefox">
+		<parameter name="browser" value="firefox"/>
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.DashBoardTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.LoginTests"></class>
+		</classes>
+	</test>
+		
+</suite>
