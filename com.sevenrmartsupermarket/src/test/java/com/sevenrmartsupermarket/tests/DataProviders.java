@@ -12,13 +12,5 @@ public class DataProviders
         excelreader.setExcelFile("DataProviderLoginDetails");
         return excelreader.getMultidimentionalData(3, 2);
     }
-   /* public Object[][] getBrand() 
-	{
-        return new Object[][] 
-        {
-        	{"admin","WrongPassword"},
-            {"WrongUsername","admin"},
-            {"WrongUsername","WrongPassword"}
-        };
-    }*/
+
 }

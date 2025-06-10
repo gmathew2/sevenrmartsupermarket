@@ -29,7 +29,7 @@ public class DashBoardTest extends Base
 		loginpage=new LoginPage(driver);
 		loginpage.login("admin", "admin");
 		dashboardpage=new DashBoardPage(driver);
-		dashboardpage.logoutFromMenuSettings();
+		dashboardpage.logoutFromProfileIcon();
 		String actualSigninPageText=dashboardpage.getSigninPageText();
 		System.out.println(actualSigninPageText);
 		String expectedSigninPageText="Sign in to start your session";
