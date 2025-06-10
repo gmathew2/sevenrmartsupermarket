@@ -14,7 +14,6 @@ public class LoginTests extends Base
 	LoginPage loginpage;
 	DashBoardPage dashboardpage;
 	ExcelReader excelreader = new ExcelReader();
-	
 	@Test(retryAnalyzer = RetryAnalyzer.class, groups="smoke")
 	public void verifyValidLogin()
 	{
