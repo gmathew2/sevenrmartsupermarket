@@ -22,6 +22,10 @@ public class LoginPage
 	private WebElement signinButton;
 	@FindBy(xpath="//div[contains(@class,'alert alert-danger alert-dismissible')]")
 	private WebElement InvalidCredentialsMessage;
+	@FindBy(xpath="//p[contains(text(),'Sign in to start your session')]")
+	private WebElement signinText;
+	@FindBy(xpath="//div[@class='icheck-dark']")
+	private WebElement rememberMe;
 
 	public LoginPage(WebDriver driver)
 	{
@@ -38,28 +42,34 @@ public class LoginPage
 		}
 	}
 	
-	public void enterUserName(String userName)
+	public boolean isRememberMeDisplayed()
+	{
+		return rememberMe.isDisplayed();
+	}
+	public LoginPage enterUserName(String userName)
 	{
 		userNameField.sendKeys(userName);
+		return this;
 	}
 	
-	public void enterPassword(String password)
+	public LoginPage enterPassword(String password)
 	{
 		passwordField.sendKeys(password);
+		return this;
 	}
 	
-	public void clickSignInButton()
+	public LoginPage clickSignInButton()
 	{
 		WaitUtility waitutility=new WaitUtility(driver);
 		waitutility.elementToBeClickable(signinButton, 60);
 		signinButton.click();
+		return this;
 	}
 	
-	public void login(String userName,String password)
+	public DashBoardPage login(String userName,String password)
 	{
-		enterUserName(userName);
-		enterPassword(password);
-		clickSignInButton();
+		enterUserName(userName).enterPassword(password).clickSignInButton();
+		return new DashBoardPage(driver);
 	}
 	
 	public String getInvalid_Username_Password_Message()
@@ -68,12 +78,15 @@ public class LoginPage
 		
 	}
 	
-	public void login() // reads from config file
+	public DashBoardPage login()
 	{
 		String userName=properties.getProperty("username");
 		String password=properties.getProperty("password");
-		enterUserName(userName);
-		enterPassword(password);
-		clickSignInButton();
+		enterUserName(userName).enterPassword(password).clickSignInButton();
+		return new DashBoardPage(driver);
+	}
+	public String getSigninPageText()
+	{
+		return signinText.getText();
 	}
 }

@@ -4,6 +4,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -13,6 +14,7 @@ public class DashBoardPage
 {
 	WebDriver driver;
 	Properties properties = new Properties();
+	@CacheLookup
 	@FindBy(xpath="//a[@class='d-block']")
 	private WebElement profileNameElement;
 	@FindBy(xpath="//p[contains(text(),'Manage Contact')]")
@@ -27,8 +29,7 @@ public class DashBoardPage
 	private WebElement menuSettings;
 	@FindBy(xpath="//p[contains(text(),'Logout')]")
 	private WebElement logout_fromSettings;
-	@FindBy(xpath="//p[contains(text(),'Sign in to start your session')]")
-	private WebElement signinText;
+	
 
 	
 	public void logoutFromProfileIcon()
@@ -41,12 +42,6 @@ public class DashBoardPage
 		menuSettings.click();
 		logout_fromSettings.click();
 	}
-	
-	public String getSigninPageText()
-	{
-		return signinText.getText();
-	}
-
 
 	public DashBoardPage(WebDriver driver)
 	{

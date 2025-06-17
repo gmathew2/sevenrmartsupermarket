@@ -35,7 +35,6 @@ public class Base
 		}
 	}
 	
-	/** initializing browser**/
 	public void initialise(String browser, String url)
 	{
 		if(browser.contains("chrome"))

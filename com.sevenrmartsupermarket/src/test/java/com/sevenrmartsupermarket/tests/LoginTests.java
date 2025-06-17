@@ -14,27 +14,33 @@ public class LoginTests extends Base
 	LoginPage loginpage;
 	DashBoardPage dashboardpage;
 	ExcelReader excelreader = new ExcelReader();
+	
+	@Test(groups="smoke")
+	public void CheckRememberMeIsDisplayed()
+	{
+		loginpage=new LoginPage(driver);
+		Assert.assertTrue(loginpage.isRememberMeDisplayed(), "The Remember Me checkbox is Not Displayed");
+	}
+	
 	@Test(retryAnalyzer = RetryAnalyzer.class, groups="smoke")
-	public void verifyValidLogin()
+	public void verifyLoginWithValidCredential()
 	{
 		String st=GeneralUtility.get_RandomName();
 		System.out.println(st);
 		excelreader.setExcelFile("LoginPage");
 		System.out.println(excelreader.getCellData(0, 0));
 		loginpage=new LoginPage(driver);
-		dashboardpage=new DashBoardPage(driver);
-		loginpage.login("admin", "admin");
+		dashboardpage=loginpage.login("admin", "admin");
 		String actualProfileName=dashboardpage.getProfileName();
 		String expectedProfilename="Admin";
 		Assert.assertEquals(actualProfileName, expectedProfilename);
 	}
 
 	@Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class, groups="smoke")
-	public void test_login_with_invalid_credentials(String username, String password)
+	public void verifyLoginWithInvalidCredentials(String username, String password)
 	{
 		loginpage=new LoginPage(driver);
-		dashboardpage=new DashBoardPage(driver);
-		loginpage.login(username,password);
+		dashboardpage=loginpage.login(username,password);
 		String actualErrorMessage=loginpage.getInvalid_Username_Password_Message();
 		System.out.println(actualErrorMessage);
 		String expectedErrorMessage="Invalid Username/Password";

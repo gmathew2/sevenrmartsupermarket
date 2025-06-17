@@ -30,7 +30,7 @@ public class DashBoardTest extends Base
 		loginpage.login("admin", "admin");
 		dashboardpage=new DashBoardPage(driver);
 		dashboardpage.logoutFromProfileIcon();
-		String actualSigninPageText=dashboardpage.getSigninPageText();
+		String actualSigninPageText=loginpage.getSigninPageText();
 		System.out.println(actualSigninPageText);
 		String expectedSigninPageText="Sign in to start your session";
 		Assert.assertEquals(actualSigninPageText, expectedSigninPageText);
@@ -43,7 +43,7 @@ public class DashBoardTest extends Base
 		loginpage.login("admin", "admin");
 		dashboardpage=new DashBoardPage(driver);
 		dashboardpage.logoutFromMenuSettings();
-		String actualSigninPageText=dashboardpage.getSigninPageText();
+		String actualSigninPageText=loginpage.getSigninPageText();
 		System.out.println(actualSigninPageText);
 		String expectedSigninPageText="Sign in to start your session";
 		Assert.assertEquals(actualSigninPageText, expectedSigninPageText);
